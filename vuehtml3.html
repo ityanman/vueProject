@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>阻止了默认事件</title>
+    <script src="js/vuejs-2.5.16.js"></script>
+
+</head>
+<body>
+
+<div id="root"> <!--只有在根节点当中的内容才能被 vue解析-->
+    <a href="http://www.baidu.com" @click="aclick($event)">点击</a>
+
+</div>
+
+
+</body>
+<script>
+
+    new Vue({
+        //初始化vue根节点
+        el:"#root",
+
+        methods:{
+          aclick:function (event) {
+              event.preventDefault(),
+              alert("阻止了默认事件")
+          }
+
+        }
+    });
+
+</script>
+</html>

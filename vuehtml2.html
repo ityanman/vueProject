@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>vue</title>
+    <script src="js/vuejs-2.5.16.js"></script>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #Testmouse{
+            height: 2000px;
+            width: 1000px;
+            background-color:lavender;
+        }
+    </style>
+</head>
+<body>
+
+<div id="root"> <!--只有在根节点当中的内容才能被 vue解析-->
+
+    <div id="Testmouse" @mousemove="onMousemove($event)">
+     x:{{x}}
+     y:{{y}}
+    </div>
+</div>
+
+
+</body>
+<script>
+
+    new Vue({
+        //初始化vue根节点
+        el:"#root",
+        //定义页面模型数据 js变量
+        data:{
+            x:0,
+            y:0
+        },
+        methods:{//鼠标移动事件
+            onMousemove:function (event) {
+                this.x = event.x;
+                this.y = event.y;
+            }
+
+        }
+    });
+
+</script>
+</html>

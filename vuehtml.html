@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>vue</title>
+    <script src="js/vuejs-2.5.16.js"></script>
+</head>
+<body>
+
+<div id="root"> <!--只有在根节点当中的内容才能被 vue解析-->
+    <input type="text" v-model="message">
+
+    {{message}}
+    <hr>
+    {{name}}
+    <button v-on:click="myClick">点击</button>
+    <button @click="myClick">点击</button>
+    <hr>
+    <input type="text" @keyDown="onkeyDown($event)">
+
+
+</div>
+
+
+</body>
+<script>
+
+    new Vue({
+        //初始化vue根节点
+        el:"#root",
+        //定义页面模型数据 js变量
+        data:{
+            message:"hello vue",
+            name:'fmjava'
+        },
+        methods:{
+            myClick:function () {//单击事件方法
+                this.message="new hello !!!"
+                alert("来了 ddd");
+            },
+            onkeyDown:function (event) {//键盘按下事件方法
+                if (event.keyCode == 13){
+                    alert("按下了回车键")
+                }
+            }
+        }
+    });
+
+</script>
+</html>
